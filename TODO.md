@@ -1,0 +1,1 @@
+# TODO: Fix Errors in index.html\n\n- [ ] Step 1: Rename inde.html → index.html\n- [ ] Step 2: Fix OpenStreetMap iframe bbox for proper map display\n- [ ] Step 3: Remove unused AOS link\n- [ ] Step 4: Test page load & functionality\n- [ ] Step 5: Complete
