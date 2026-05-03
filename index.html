@@ -187,8 +187,9 @@
         }
 
         /* Navbar Sticky */
-        .navbar {
+.navbar {
             background: rgba(255, 255, 255, 0.97);
+            -webkit-backdrop-filter: blur(12px);
             backdrop-filter: blur(12px);
             box-shadow: 0 2px 20px rgba(0, 0, 0, 0.05);
             position: sticky;
@@ -467,7 +468,51 @@
             transform: scale(1.1) rotate(3deg);
         }
 
-        .prestasi-badge {
+        /* Virtual Tour Styling */
+        .virtual-tour-card {
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .virtual-tour-card:hover {
+            transform: translateY(-8px) scale(1.03);
+            box-shadow: 0 20px 40px rgba(15, 59, 44, 0.2);
+        }
+
+        .virtual-tour-card:hover i {
+            transform: scale(1.15) rotateZ(-15deg);
+            color: var(--secondary);
+        }
+
+        .virtual-tour-card:hover p {
+            color: var(--primary);
+            font-weight: 500;
+        }
+
+        /* Jalur Pendaftaran Button Styling */
+        .card-white button[onclick*="daftarJalur"] {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card-white button[onclick*="daftarJalur"]:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-white button[onclick*="daftarJalur"]:active {
+            transform: translateY(0);
+        }
+
+        /* Jalur Card Hover Enhancement */
+        .card-white[style*="border:2px solid var(--secondary)"] {
+            box-shadow: 0 0 0 0 rgba(196, 154, 108, 0.2);
+        }
+
+        .card-white[style*="border:2px solid var(--secondary)"]:hover {
+            box-shadow: 0 0 20px rgba(196, 154, 108, 0.3);
+        }
             background: var(--accent-gold);
             color: #1f2e3f;
             padding: 0.2rem 0.9rem;
@@ -653,8 +698,8 @@
     <div class="container">
         <h2 class="section-title fade-up">Profil Yayasan & Pondok</h2>
         <div class="grid-2">
-            <div class="card-white scale-in"><i class="fas fa-history icon-large"></i><h3>Sejarah Berdiri</h3><p>Pondok Pesantren SIROJUTTOLIBIN berdiri tahun 1998 oleh KH. Ma'ruf Abdullah. SMP Darussalam Al Husna resmi beroperasi sejak 2005 sebagai wujud pengabdian mencetak generasi cendekia muslim. Hingga kini meluluskan ribuan santri yang tersebar di berbagai universitas ternama.</p></div>
-            <div class="card-white scale-in"><i class="fas fa-sitemap icon-large"></i><h3>Struktur Organisasi</h3><p>Pengasuh: KH. Ahmad Fathoni<br> Kepala Yayasan: Drs. H. Zainal Fanani<br> Kepala SMP: Dr. Hj. Laila Rohmah, M.Pd.<br> Dewan Guru & Pengasuh: 35 pendidik profesional. <strong>Jaringan:</strong> Kemenag, Disdik Jatim, Lembaga Tahfidz Nasional.</p></div>
+            <div class="card-white scale-in"><i class="fas fa-history icon-large"></i><h3>Sejarah Berdiri</h3><p>Pondok Pesantren SIROJUTTOLIBIN berdiri tahun 2026 M. oleh KH. Lukman Hakim. SMP Darussalam Al Husna resmi beroperasi Mulai awal juni 2026 sebagai wujud pengabdian mencetak generasi cendekia muslim. Hingga kini meluluskan ribuan santri yang tersebar di berbagai universitas ternama.</p></div>
+            <div class="card-white scale-in"><i class="fas fa-sitemap icon-large"></i><h3>Struktur Organisasi</h3><p>Pengasuh: KH. Lukman Hakim<br> Kepala Yayasan: Drs. H. Zainal Fanani<br> Kepala SMP: Dr. Hj. Laila Rohmah, M.Pd.<br> Dewan Guru & Pengasuh: 35 pendidik profesional. <strong>Jaringan:</strong> Kemenag, Disdik Jatim, Lembaga Tahfidz Nasional.</p></div>
         </div>
     </div>
 </section>
@@ -664,10 +709,77 @@
     <div class="container">
         <h2 class="section-title fade-up">Penerimaan Santri Baru 2025/2026</h2>
         <p class="section-subtitle fade-up">Gelombang 1: 1 Januari - 28 Februari | Gelombang 2: 1 Maret - 31 Mei</p>
+        
+        <!-- Jalur Pendaftaran -->
+        <div style="margin-bottom:3rem;">
+            <h3 style="text-align:center; color:var(--primary); margin-bottom:2rem; font-size:1.5rem;">Pilih Jalur Pendaftaran</h3>
+            <div class="grid-3">
+                <!-- Jalur Reguler -->
+                <div class="card-white scale-in" style="position:relative; transition:all 0.35s;">
+                    <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:1rem;">
+                        <i class="fas fa-graduation-cap" style="font-size:2.5rem; color:var(--secondary);"></i>
+                        <span style="background:var(--primary); color:white; padding:0.3rem 0.8rem; border-radius:20px; font-size:0.75rem; font-weight:600;">UMUM</span>
+                    </div>
+                    <h3 style="color:var(--primary); margin-bottom:0.5rem;">Jalur Reguler</h3>
+                    <p style="color:#666; font-size:0.9rem; margin-bottom:1rem;"><strong>Untuk:</strong> Calon santri umum dengan nilai akademik standar</p>
+                    <div style="background:#F5ECE3; border-radius:12px; padding:1rem; margin-bottom:1rem; font-size:0.85rem;">
+                        <p style="margin-bottom:0.5rem;"><strong>📋 Syarat:</strong></p>
+                        <ul style="margin-left:1rem; color:#666; line-height:1.6;">
+                            <li>Lulusan SD/MI</li>
+                            <li>Surat keterangan sehat</li>
+                            <li>Akta lahir & KTP orang tua</li>
+                        </ul>
+                    </div>
+                    <button onclick="daftarJalur('reguler')" style="width:100%; background:var(--primary); color:white; border:none; border-radius:12px; padding:0.8rem; cursor:pointer; font-weight:600; transition:all 0.3s; font-size:0.95rem;">Daftar Sekarang</button>
+                </div>
+
+                <!-- Jalur Tahfidz -->
+                <div class="card-white scale-in" style="position:relative; transition:all 0.35s; border:2px solid var(--secondary);">
+                    <div style="position:absolute; top:-12px; left:20px; background:var(--secondary); color:white; padding:0.4rem 1rem; border-radius:20px; font-size:0.75rem; font-weight:700;">⭐ UNGGULAN</div>
+                    <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:1rem; margin-top:0.5rem;">
+                        <i class="fas fa-quran" style="font-size:2.5rem; color:var(--secondary);"></i>
+                        <span style="background:var(--secondary); color:white; padding:0.3rem 0.8rem; border-radius:20px; font-size:0.75rem; font-weight:600;">TAHFIDZ</span>
+                    </div>
+                    <h3 style="color:var(--primary); margin-bottom:0.5rem;">Jalur Tahfidz</h3>
+                    <p style="color:#666; font-size:0.9rem; margin-bottom:1rem;"><strong>Untuk:</strong> Calon hafizh dengan komitmen tinggi</p>
+                    <div style="background:#F5ECE3; border-radius:12px; padding:1rem; margin-bottom:1rem; font-size:0.85rem;">
+                        <p style="margin-bottom:0.5rem;"><strong>💰 Benefit:</strong></p>
+                        <ul style="margin-left:1rem; color:#666; line-height:1.6;">
+                            <li>Beasiswa 50% - 100%</li>
+                            <li>Program Tahfidz khusus</li>
+                            <li>Bimbingan intensif</li>
+                        </ul>
+                    </div>
+                    <button onclick="daftarJalur('tahfidz')" style="width:100%; background:var(--secondary); color:white; border:none; border-radius:12px; padding:0.8rem; cursor:pointer; font-weight:600; transition:all 0.3s; font-size:0.95rem;">Daftar Sekarang</button>
+                </div>
+
+                <!-- Jalur Prestasi -->
+                <div class="card-white scale-in" style="position:relative; transition:all 0.35s;">
+                    <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom:1rem;">
+                        <i class="fas fa-trophy" style="font-size:2.5rem; color:var(--accent-gold);"></i>
+                        <span style="background:var(--accent-gold); color:#333; padding:0.3rem 0.8rem; border-radius:20px; font-size:0.75rem; font-weight:600;">PRESTASI</span>
+                    </div>
+                    <h3 style="color:var(--primary); margin-bottom:0.5rem;">Jalur Prestasi</h3>
+                    <p style="color:#666; font-size:0.9rem; margin-bottom:1rem;"><strong>Untuk:</strong> Juara lomba akademik & non-akademik</p>
+                    <div style="background:#F5ECE3; border-radius:12px; padding:1rem; margin-bottom:1rem; font-size:0.85rem;">
+                        <p style="margin-bottom:0.5rem;"><strong>🏆 Syarat:</strong></p>
+                        <ul style="margin-left:1rem; color:#666; line-height:1.6;">
+                            <li>Juara OSN/Kompetisi</li>
+                            <li>Sertifikat prestasi</li>
+                            <li>Beasiswa hingga 70%</li>
+                        </ul>
+                    </div>
+                    <button onclick="daftarJalur('prestasi')" style="width:100%; background:var(--accent-gold); color:#333; border:none; border-radius:12px; padding:0.8rem; cursor:pointer; font-weight:600; transition:all 0.3s; font-size:0.95rem;">Daftar Sekarang</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Biaya & Beasiswa -->
         <div class="grid-2">
             <div class="card-white scale-in"><i class="fas fa-money-bill-wave icon-large"></i><h3>Biaya & Beasiswa</h3><p><strong>Pendaftaran:</strong> Rp 250.000<br> <strong>SPP + Asrama:</strong> Rp 850.000/bln<br> <strong>Dana Pembangunan:</strong> Rp 1.500.000</p><p><strong>Beasiswa:</strong> Tahfidz 5 Juz (50%), Prestasi OSN (70%), dan kurang mampu (100%).</p><a href="#" class="btn-primary" style="margin-top:1rem;"><i class="fas fa-download"></i> Download Brosur</a></div>
-            <div class="card-white scale-in"><i class="fas fa-edit icon-large"></i><h3>Formulir Online</h3><form id="daftarForm"><input type="text" class="form-input" placeholder="Nama Lengkap" required><input type="text" class="form-input" placeholder="Asal Sekolah" required><select class="form-input"><option>Jalur Pendaftaran</option><option>Reguler</option><option>Tahfidz</option><option>Prestasi</option></select><button type="submit" class="btn-primary" style="width:100%; justify-content:center;">Kirim Pendaftaran</button><p style="font-size:12px; margin-top:12px;">*Admin akan menghubungi via WhatsApp</p></form></div>
+            <div class="card-white scale-in"><i class="fas fa-file-contract icon-large"></i><h3>Cara Mendaftar</h3><p><strong>Langkah 1:</strong> Pilih jalur pendaftaran<br><strong>Langkah 2:</strong> Siapkan dokumen<br><strong>Langkah 3:</strong> Kirim form + dokumen<br><strong>Langkah 4:</strong> Tunggu konfirmasi via WhatsApp</p><a href="https://wa.me/6281234567890?text=Halo%20saya%20ingin%20mendaftar%20SMP%20Darussalam" class="btn-primary" style="margin-top:1rem;"><i class="fab fa-whatsapp"></i> Chat Panitia</a></div>
         </div>
+
         <div class="card-white scale-in" style="margin-top: 2rem;"><i class="fas fa-chalkboard-user"></i> <strong>Testimoni Orang Tua:</strong> "SMP Darussalam Al Husna sangat membimbing karakter anak, kami melihat perubahan akhlak yang luar biasa." - Ibu Fatimah</div>
     </div>
 </section>
@@ -681,7 +793,39 @@
             <div class="card-white scale-in"><i class="fas fa-book icon-large"></i><h3>Perpustakaan Digital</h3><p>Ribuan ebook Islami & akses jurnal nasional.</p></div>
             <div class="card-white scale-in"><i class="fas fa-bed icon-large"></i><h3>Asrama Full Day</h3><p>Kamar AC, mushola, dan pengawasan ustadz 24 jam.</p></div>
         </div>
-        <div class="scale-in" style="margin-top:2rem;"><h3 style="text-align:center;">Virtual Tour 360°</h3><div style="background:#E8E0D5; border-radius:28px; padding:1.5rem; text-align:center; transition: all 0.3s;"><i class="fas fa-vr-cardboard fa-3x" style="color:var(--primary);"></i><p style="margin-top:8px;">Klik untuk simulasi ruang kelas & asrama</p></div></div>
+        <div class="scale-in" style="margin-top:2rem;"><h3 style="text-align:center;">Virtual Tour 360°</h3><div class="virtual-tour-card" id="tourBtn" style="background:#E8E0D5; border-radius:28px; padding:1.5rem; text-align:center;"><i class="fas fa-vr-cardboard fa-3x" style="color:var(--primary);"></i><p style="margin-top:8px;">Klik untuk simulasi ruang kelas & asrama</p></div></div>
+
+        <!-- Virtual Tour Modal -->
+        <div id="tourModal" class="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:2000; justify-content:center; align-items:center; padding:1rem;">
+            <div style="background:white; border-radius:24px; padding:2rem; max-width:600px; width:100%; max-height:80vh; overflow-y:auto; position:relative;">
+                <button id="closeModal" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#999;">&times;</button>
+                <h3 style="text-align:center; color:var(--primary); margin-bottom:1.5rem;">Jelajahi Pondok</h3>
+                <p style="text-align:center; color:#666; margin-bottom:2rem;">Pilih area yang ingin Anda lihat:</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <div class="tour-option" onclick="showTour('classroom')" style="cursor:pointer; background:#F0E8DF; border-radius:16px; padding:1.5rem; text-align:center; transition:all 0.3s;">
+                        <i class="fas fa-chalkboard fa-2x" style="color:var(--primary); margin-bottom:0.5rem;"></i>
+                        <h4 style="color:var(--primary); margin-top:0.5rem;">Ruang Kelas</h4>
+                        <p style="font-size:0.85rem; color:#666;">Lab & perpustakaan</p>
+                    </div>
+                    <div class="tour-option" onclick="showTour('dorm')" style="cursor:pointer; background:#F0E8DF; border-radius:16px; padding:1.5rem; text-align:center; transition:all 0.3s;">
+                        <i class="fas fa-bed fa-2x" style="color:var(--primary); margin-bottom:0.5rem;"></i>
+                        <h4 style="color:var(--primary); margin-top:0.5rem;">Asrama</h4>
+                        <p style="font-size:0.85rem; color:#666;">Kamar & fasilitas</p>
+                    </div>
+                    <div class="tour-option" onclick="showTour('mosque')" style="cursor:pointer; background:#F0E8DF; border-radius:16px; padding:1.5rem; text-align:center; transition:all 0.3s;">
+                        <i class="fas fa-gopuram fa-2x" style="color:var(--primary); margin-bottom:0.5rem;"></i>
+                        <h4 style="color:var(--primary); margin-top:0.5rem;">Mushola</h4>
+                        <p style="font-size:0.85rem; color:#666;">Pusat ibadah</p>
+                    </div>
+                    <div class="tour-option" onclick="showTour('sports')" style="cursor:pointer; background:#F0E8DF; border-radius:16px; padding:1.5rem; text-align:center; transition:all 0.3s;">
+                        <i class="fas fa-volleyball-ball fa-2x" style="color:var(--primary); margin-bottom:0.5rem;"></i>
+                        <h4 style="color:var(--primary); margin-top:0.5rem;">Olahraga</h4>
+                        <p style="font-size:0.85rem; color:#666;">Lapangan & kolam</p>
+                    </div>
+                </div>
+                <p style="text-align:center; color:#999; font-size:0.85rem; margin-top:2rem;">💡 Klik pilihan untuk melihat galeri foto</p>
+            </div>
+        </div>
     </div>
 </section>
 
@@ -738,8 +882,25 @@
     <div class="container">
         <h2 class="section-title fade-up">Hubungi Kami</h2>
         <div class="grid-2">
-            <div class="card-white scale-in"><i class="fas fa-phone-alt"></i><h3>Info Pendaftaran</h3><p><i class="fab fa-whatsapp"></i> +62 812 3456 7890 <br> <i class="fas fa-envelope"></i> ppdb@smparussalam.sch.id</p><p><strong>Alamat:</strong> Jl. Kyai Hasyim Asy'ari No.45, Dusun Pondok, Kab. Probolinggo, Jatim</p></div>
-            <div class="card-white map-container scale-in"><i class="fas fa-map-marked-alt"></i><h3>Lokasi Kami</h3><iframe src="https://www.openstreetmap.org/export/embed.html?bbox=113.22%2C-7.78%2C113.28%2C-7.75&layer=mapnik&marker=-7.765%2C113.25" title="Peta"></iframe><p style="font-size:12px; margin-top:8px;">Dekat Stasiun Probolinggo, antar jemput.</p></div>
+            <div class="card-white scale-in"><i class="fas fa-phone-alt"></i><h3>Info Pendaftaran</h3><p><i class="fab fa-whatsapp"></i> +62 812 3456 7890 <br> <i class="fas fa-envelope"></i> smpdarussalamalhusna@gmail.com</p><p><strong>Alamat:</strong> Jl. Kyai Hasyim Asy'ari No.45, Dusun Sidoluhur, Desa, Marga Batin Kec. Waway Karya Kab. Lapung Timur, Lampung</p></div>
+                <div class="card-white map-container scale-in">
+                <i class="fas fa-map-marked-alt"></i>
+                <h3>Lokasi Kami</h3>
+
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d700.2893424631666!2d105.63617111277733!3d-5.472652858281955!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e40fd73a4ceca6f%3A0x2510c9569d4af470!2sMADRASAH%20DINIYAH%20SIROJUT%20THOLIBIN!5e1!3m2!1sid!2sid!4v1777776250416!5m2!1sid!2sid"
+                    width="100%"
+                    height="250"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade">
+                </iframe>
+
+                <p style="font-size:12px; margin-top:8px;">
+                    Lokasi: Madrasah Diniyah Sirojut Tholibin
+                </p>
+                </div>
         </div>
     </div>
 </section>
@@ -768,7 +929,7 @@
     </div>
 </footer>
 
-<a href="https://wa.me/6281234567890?text=Assalamualaikum%2C%20saya%20ingin%20info%20PPDB%20SMP%20Darussalam%20Al%20Husna" class="wa-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<a href="https://wa.me/6281234567890?text=Assalamualaikum%2C%20saya%20ingin%20info%20PPDB%20SMP%20Darussalam%20Al%20Husna" class="wa-float" target="_blank" rel="noopener noreferrer"><i class="fab fa-whatsapp"></i></a>
 
 <script>
     const menuToggle = document.getElementById('mobile-menu');
@@ -804,6 +965,226 @@
         });
     }, { threshold: 0.1, rootMargin: "0px 0px -20px 0px" });
     animatedElements.forEach(el => observer.observe(el));
+
+    // Virtual Tour Functionality
+    const tourBtn = document.getElementById('tourBtn');
+    const tourModal = document.getElementById('tourModal');
+    const closeModal = document.getElementById('closeModal');
+    let tourOptions = document.querySelectorAll('.tour-option');
+
+    // Function to attach hover effects to tour options
+    const attachTourOptionHovers = () => {
+        tourOptions = document.querySelectorAll('.tour-option');
+        tourOptions.forEach(option => {
+            option.addEventListener('mouseenter', function() {
+                this.style.background = 'var(--secondary-light)';
+                this.style.transform = 'translateY(-4px) scale(1.05)';
+                this.querySelector('i').style.color = 'var(--secondary)';
+            });
+            option.addEventListener('mouseleave', function() {
+                this.style.background = '#F0E8DF';
+                this.style.transform = 'scale(1)';
+                this.querySelector('i').style.color = 'var(--primary)';
+            });
+        });
+    };
+    
+    attachTourOptionHovers();
+
+    // Open modal on click
+    tourBtn.addEventListener('click', () => {
+        tourModal.style.display = 'flex';
+        document.body.style.overflow = 'hidden';
+        attachTourOptionHovers();
+    });
+
+    // Close modal when clicking outside
+    tourModal.addEventListener('click', (e) => {
+        if (e.target === tourModal) {
+            tourModal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    });
+
+    // Re-attach initial close modal button listener
+    const attachCloseModalListener = () => {
+        const closeBtn = document.getElementById('closeModal');
+        if (closeBtn) {
+            closeBtn.onclick = () => {
+                tourModal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            };
+        }
+    };
+    attachCloseModalListener();
+
+    // Handle tour selection
+    window.showTour = function(type) {
+        const tourData = {
+            classroom: {
+                title: 'Ruang Kelas & Lab',
+                description: 'Jelajahi fasilitas pembelajaran terkini dengan lab komputer, perpustakaan digital, dan ruang kelas interaktif.'
+            },
+            dorm: {
+                title: 'Asrama Santri',
+                description: 'Kamar berAC, lingkungan nyaman, dengan pembimbingan ustadz 24 jam untuk mendukung tahfidz dan akhlak.'
+            },
+            mosque: {
+                title: 'Mushola & Ruang Ibadah',
+                description: 'Pusat spiritual pondok dengan fasilitas lengkap untuk sholat berjamaah dan kegiatan keagamaan.'
+            },
+            sports: {
+                title: 'Sarana Olahraga',
+                description: 'Lapangan futsal, kolam renang, dan area olahraga untuk mengembangkan kesehatan dan disiplin santri.'
+            }
+        };
+
+        const data = tourData[type];
+        const imageMap = {
+            classroom: '🖥️ Lab Komputer & Perpustakaan Digital',
+            dorm: '🏠 Asrama dengan Fasilitas Lengkap',
+            mosque: '🕌 Mushola & Ruang Ibadah',
+            sports: '⚽ Lapangan Futsal & Kolam Renang'
+        };
+
+        // Create image gallery view
+        const content = tourModal.querySelector('div');
+        content.innerHTML = `
+            <button id="closeModalDetail" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#999;">&times;</button>
+            <div style="text-align:center;">
+                <i class="fas fa-images fa-4x" style="color:var(--secondary); margin-bottom:1rem;"></i>
+                <h3 style="color:var(--primary); margin-bottom:0.5rem;">${data.title}</h3>
+                <p style="color:#666; margin-bottom:2rem;">${data.description}</p>
+                <div style="background:#F0E8DF; border-radius:16px; padding:2rem; text-align:center; margin-bottom:1.5rem;">
+                    <p style="font-size:3rem; margin-bottom:0.5rem;">${imageMap[type]}</p>
+                    <p style="color:#999; font-size:0.9rem;">Gallery preview</p>
+                </div>
+                <button id="lihatFasilitasBtn" style="background:var(--primary); color:white; border:none; border-radius:12px; padding:0.8rem 2rem; cursor:pointer; font-weight:600; transition:all 0.3s;">Lihat Fasilitas Lainnya</button>
+                <button id="backToTours" style="background:#E8E0D5; color:var(--primary); border:none; border-radius:12px; padding:0.8rem 2rem; cursor:pointer; font-weight:600; margin-left:0.5rem; transition:all 0.3s;">Kembali</button>
+            </div>
+        `;
+        
+        // Attach close button listener for detail view
+        setTimeout(() => {
+            const closeDetailBtn = document.getElementById('closeModalDetail');
+            if (closeDetailBtn) {
+                closeDetailBtn.addEventListener('click', () => {
+                    tourModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                });
+            }
+
+            // Attach lihat fasilitas button listener
+            const lihatFasilitasBtn = document.getElementById('lihatFasilitasBtn');
+            if (lihatFasilitasBtn) {
+                lihatFasilitasBtn.addEventListener('click', () => {
+                    tourModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    setTimeout(() => {
+                        document.querySelector('#fasilitas').scrollIntoView({ behavior: 'smooth' });
+                    }, 100);
+                });
+            }
+
+            // Attach back button listener
+            const backBtn = document.getElementById('backToTours');
+            if (backBtn) {
+                backBtn.addEventListener('click', () => {
+                    // Re-render the main tour menu
+                    content.innerHTML = `
+                        <button id="closeModal" style="position:absolute; top:1rem; right:1rem; background:none; border:none; font-size:1.5rem; cursor:pointer; color:#999;">&times;</button>
+                        <h3 style="text-align:center; color:var(--primary); margin-bottom:1.5rem;">Jelajahi Pondok</h3>
+                        <p style="text-align:center; color:#666; margin-bottom:2rem;">Pilih area yang ingin Anda lihat:</p>
+                        <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                            <div class="tour-option" onclick="showTour('classroom')" style="cursor:pointer; background:#F0E8DF; border-radius:16px; padding:1.5rem; text-align:center; transition:all 0.3s;">
+                                <i class="fas fa-chalkboard fa-2x" style="color:var(--primary); margin-bottom:0.5rem;"></i>
+                                <h4 style="color:var(--primary); margin-top:0.5rem;">Ruang Kelas</h4>
+                                <p style="font-size:0.85rem; color:#666;">Lab & perpustakaan</p>
+                            </div>
+                            <div class="tour-option" onclick="showTour('dorm')" style="cursor:pointer; background:#F0E8DF; border-radius:16px; padding:1.5rem; text-align:center; transition:all 0.3s;">
+                                <i class="fas fa-bed fa-2x" style="color:var(--primary); margin-bottom:0.5rem;"></i>
+                                <h4 style="color:var(--primary); margin-top:0.5rem;">Asrama</h4>
+                                <p style="font-size:0.85rem; color:#666;">Kamar & fasilitas</p>
+                            </div>
+                            <div class="tour-option" onclick="showTour('mosque')" style="cursor:pointer; background:#F0E8DF; border-radius:16px; padding:1.5rem; text-align:center; transition:all 0.3s;">
+                                <i class="fas fa-gopuram fa-2x" style="color:var(--primary); margin-bottom:0.5rem;"></i>
+                                <h4 style="color:var(--primary); margin-top:0.5rem;">Mushola</h4>
+                                <p style="font-size:0.85rem; color:#666;">Pusat ibadah</p>
+                            </div>
+                            <div class="tour-option" onclick="showTour('sports')" style="cursor:pointer; background:#F0E8DF; border-radius:16px; padding:1.5rem; text-align:center; transition:all 0.3s;">
+                                <i class="fas fa-volleyball-ball fa-2x" style="color:var(--primary); margin-bottom:0.5rem;"></i>
+                                <h4 style="color:var(--primary); margin-top:0.5rem;">Olahraga</h4>
+                                <p style="font-size:0.85rem; color:#666;">Lapangan & kolam</p>
+                            </div>
+                        </div>
+                        <p style="text-align:center; color:#999; font-size:0.85rem; margin-top:2rem;">💡 Klik pilihan untuk melihat galeri foto</p>
+                    `;
+                    
+                    // Re-attach close button
+                    const newCloseBtn = document.getElementById('closeModal');
+                    if (newCloseBtn) {
+                        newCloseBtn.removeEventListener('click', closeModalHandler);
+                        newCloseBtn.addEventListener('click', closeModalHandler);
+                    }
+                });
+            }
+        }, 10);
+    };
+
+    // Close modal handler
+    const closeModalHandler = () => {
+        tourModal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+    };
+
+    // Daftar Jalur Function
+    window.daftarJalur = function(jalur) {
+        const jalurInfo = {
+            reguler: {
+                nama: 'Jalur Reguler',
+                icon: '🎓',
+                pesan: 'Terima kasih telah memilih Jalur Reguler! Panitia PPDB akan menghubungi Anda melalui WhatsApp untuk melanjutkan proses pendaftaran.'
+            },
+            tahfidz: {
+                nama: 'Jalur Tahfidz',
+                icon: '📖',
+                pesan: 'Alhamdulillah Anda memilih Jalur Tahfidz! Kami akan mengirimkan panduan program khusus Tahfidz dan proses seleksi hafalan.'
+            },
+            prestasi: {
+                nama: 'Jalur Prestasi',
+                icon: '🏆',
+                pesan: 'Selamat! Kami sangat tertarik dengan prestasi Anda. Tim panitia akan menghubungi untuk verifikasi dokumen prestasi Anda.'
+            }
+        };
+
+        const info = jalurInfo[jalur];
+        const waPhone = '6281234567890';
+        const waMessage = `Halo, saya ingin mendaftar melalui ${info.nama}. Mohon panduan lebih lanjut.`;
+        const waLink = `https://wa.me/${waPhone}?text=${encodeURIComponent(waMessage)}`;
+
+        // Show confirmation modal
+        const confirmModal = document.createElement('div');
+        confirmModal.style.cssText = 'position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.7); z-index:3000; display:flex; justify-content:center; align-items:center; padding:1rem;';
+        confirmModal.innerHTML = `
+            <div style="background:white; border-radius:24px; padding:2rem; max-width:500px; width:100%; text-align:center; animation:scaleIn 0.3s ease;">
+                <div style="font-size:3rem; margin-bottom:1rem;">${info.icon}</div>
+                <h2 style="color:var(--primary); margin-bottom:1rem;">${info.nama}</h2>
+                <p style="color:#666; margin-bottom:2rem; line-height:1.6;">${info.pesan}</p>
+                <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+                    <button onclick="this.closest('div').remove();" style="background:#E8E0D5; color:var(--primary); border:none; border-radius:12px; padding:0.8rem; cursor:pointer; font-weight:600; font-size:0.95rem;">Nanti Saja</button>
+                    <a href="${waLink}" target="_blank" rel="noopener noreferrer" style="background:var(--primary); color:white; border:none; border-radius:12px; padding:0.8rem; cursor:pointer; font-weight:600; font-size:0.95rem; text-decoration:none; display:flex; align-items:center; justify-content:center; gap:0.5rem;"><i class="fab fa-whatsapp"></i> Chat Panitia</a>
+                </div>
+            </div>
+        `;
+        document.body.appendChild(confirmModal);
+
+        // Close on background click
+        confirmModal.addEventListener('click', (e) => {
+            if (e.target === confirmModal) {
+                confirmModal.remove();
+            }
+        });
+    };
 </script>
 </body>
 </html>
